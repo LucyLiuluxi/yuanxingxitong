@@ -1,0 +1,40 @@
+{
+  "name": "shanghaiyh",
+  "version": "1.0.0",
+  "description": "shyh",
+  "main": "shyh.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "liuluxi",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-bower": "0.0.11",
+    "gulp-cdn-replace": "^0.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-filter": "^3.0.1",
+    "gulp-flatten": "^0.2.0",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.1.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-useref": "^3.0.3",
+    "http-proxy-middleware": "^0.9.0",
+    "jshint": "^2.8.0",
+    "main-bower-files": "^2.9.0",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "js-md5": "^0.4.0"
+  }
+}

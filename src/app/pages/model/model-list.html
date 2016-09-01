@@ -1,0 +1,76 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        模型管理
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-12">
+            <p>
+                <button type="button" class="btn btn-primary" ng-click="modelList.addPanelFlag = true">添加</button>
+            </p>
+        </div>
+    </div>
+    <div class="row" ng-if="modelList.addPanelFlag">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    添加模型
+                </header>
+                <div class="panel-body form-inline-group">
+                    <form class="form-inline adminex-form" ng-submit="modelList.submit()">
+                        <div class="form-group">
+                            <label>名称</label>
+                            <input type="text" class="form-control" placeholder="请填写名称" ng-model="modelList.modelName">
+                        </div>
+                        <div class="form-group">
+                            <label>模板</label>
+                            <select class="form-control" ng-model="modelList.templateId">
+                                <option value="">请选择模板</option>
+                                <option value="1">模板1</option>
+                                <option value="2">模板2</option>
+                                <option value="3">模板3</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="modelList.submit()"> 保存 </button>
+                        <button type="button" class="btn btn-default" ng-click="modelList.addPanelFlag = false"> 取消 </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>模版</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="model in modelList.modelList">
+                    <td>{{ $index }}</td>
+                    <td>{{ ::model.model }}</td>
+                    <td>{{ ::model.template_name }}</td>
+                    <td>{{ ::model.status }}</td>
+                    <td>{{ ::model.created_at }}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" type="button" ng-click="modelList.gotoDetail(model.id)">详情</button>
+                        <button class="btn btn-danger btn-sm" type="button" ng-click="modelList.del(model.id)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->

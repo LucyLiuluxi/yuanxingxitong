@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="shyh">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+        <!-- Page title set in pageTitle directive -->
+        <title page-title></title>
+
+        <link href="template/css/style.css" rel="stylesheet">
+        <link href="template/css/style-responsive.css" rel="stylesheet">
+        <link href="assets/css/shyh.css" rel="stylesheet">
+    </head>
+
+    <body id="page-top" landing-scrollspy class="{{$state.current.data.specialClass}}"
+          ng-controller="MainController as main"
+          ng-init="main.init()">
+
+        <!-- Main view  -->
+        <div ui-view></div>
+
+        <script src="template/js/jquery-1.10.2.min.js"></script>
+        <script src="template/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="template/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="template/js/bootstrap.min.js"></script>
+        <script src="template/js/modernizr.min.js"></script>
+        <script src="template/js/nicescroll.js"></script>
+        <script src="template/js/scripts.js"></script>
+
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="vendor/angular/angular.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/angular/angular-sanitize.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/angular-translate/angular-translate.min.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/ui-router/angular-ui-router.min.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/plugins/angular-idle/angular-idle.js"></script>
+        <script src="http://cdn.cshen.cn/INSPINIA-v2.5/js/angular/angular-cookies.min.js"></script>
+        <script src="vendor/angular-local-storage/dist/angular-local-storage.min.js"></script>
+
+        <script src="assets/js/app.js"></script>
+
+    </body>
+
+</html>
