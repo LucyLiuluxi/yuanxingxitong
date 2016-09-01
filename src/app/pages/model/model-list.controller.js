@@ -39,10 +39,13 @@ function ModelListCtrl($rootScope, $http, Model, AlertBox) {
             transformResponse: function (data, headersGetter, status) {
                 //This was implemented since the REST service is returning a plain/text response
                 //and angularJS $http module can't parse the response like that.
-                return {data: data};
+                data = data.replace(/\s/g, '');
+                data = data.toString();
+                console.log(data);
+                return data;
             }
         }).success(function (res) {
-            console.log(res);
+            console.log(typeof res);
             //Some success function
         }).error(function () {
             //Some error function
