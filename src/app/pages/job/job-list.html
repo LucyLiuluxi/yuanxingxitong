@@ -1,7 +1,7 @@
 <!-- page heading start-->
 <div class="page-heading">
     <h3>
-        模型管理
+        job管理
     </h3>
 </div>
 <!-- page heading end-->
@@ -11,28 +11,22 @@
     <div class="row top-operation-btn-group">
         <div class="col-lg-12">
             <p>
-                <button type="button" class="btn btn-primary" ng-click="modelList.addPanelFlag = true">添加</button>
+                <button type="button" class="btn btn-primary" ng-click="jobList.addPanelFlag = true">添加</button>
             </p>
         </div>
     </div>
-    <div class="row" ng-if="modelList.addPanelFlag">
+    <div class="row" ng-show="jobList.addPanelFlag">
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    添加模型
+                    添加job
                 </header>
-                <div class="panel-body form-inline-group">
-                    <form action="#" class="form-horizontal ">
-                        <div class="form-group">
-                            <label class="control-label col-lg-2">名称</label>
-                            <div class="col-md-4 col-xs-11">
-                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="请填写名称" ng-model="modelList.modelName"/>
-                            </div>
-                        </div>
+                <div class="panel-body">
+                    <form class="form-horizontal ">
                         <div class="form-group">
                             <label class="control-label col-lg-2">模板</label>
                             <div class="col-md-4 col-xs-11">
-                                <select class="form-control" ng-model="modelList.templateId">
+                                <select class="form-control" ng-model="jobList.modelId">
                                     <option value="">请选择模板</option>
                                     <option value="1">模板1</option>
                                     <option value="2">模板2</option>
@@ -41,10 +35,26 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-lg-2">began at</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" ng-model="jobList.beganAt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">dataset</label>
+                            <div class="col-md-4">
+                                <div class="input-group input-large custom-date-range" data-date="2016-09-03" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control dpd1" name="from" ng-model="jobList.dataset.beganAt">
+                                    <span class="input-group-addon">To</span>
+                                    <input type="text" class="form-control dpd2" name="to" ng-model="jobList.dataset.endedAt">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-lg-2"></label>
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary" ng-click="modelList.submit()"> 保存 </button>
-                                <button type="button" class="btn btn-default" ng-click="modelList.addPanelFlag = false"> 取消 </button>
+                                <button type="submit" class="btn btn-primary" ng-click="jobList.submit()"> 保存 </button>
+                                <button type="button" class="btn btn-default" ng-click="jobList.addPanelFlag = false"> 取消 </button>
                             </div>
                         </div>
                     </form>
@@ -59,30 +69,27 @@
                 <tr>
                     <th>序号</th>
                     <th>名称</th>
-                    <th>模版</th>
                     <th>状态</th>
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="model in modelList.modelList">
+                <tr ng-repeat="job in jobList.jobList">
                     <td>{{ $index }}</td>
-                    <td>{{ ::model.model }}</td>
-                    <td>{{ ::model.template_name }}</td>
-                    <td>{{ ::model.status }}</td>
-                    <td>{{ ::model.created_at }}</td>
+                    <td>{{ ::job.job }}</td>
+                    <td>{{ ::job.status }}</td>
+                    <td>{{ ::job.created_at }}</td>
                     <td>
-                        <button class="btn btn-primary btn-xs" type="button" ng-click="modelList.gotoDetail(model.id)">详情</button>
-                        <button class="btn btn-danger btn-xs" type="button" ng-click="modelList.del(model.id)">删除</button>
+                        <button class="btn btn-primary btn-xs" type="button" ng-click="jobList.gotoDetail(job.id)">详情</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
             <uib-pagination class="pagination-sm pull-right-pagination"
-                            total-items="modelList.totalModels"
-                            items-per-page="modelList.pageSize"
-                            ng-model="modelList.page"
+                            total-items="jobList.total"
+                            items-per-page="jobList.pageSize"
+                            ng-model="jobList.page"
                             max-size="5"
                             boundary-links="true"
                             previous-text="上一页"
@@ -91,7 +98,7 @@
                             last-text="末页"
                             rotate="true"
                             boundary-link-numbers="true"
-                            ng-change="modelList.refreshModelList()"></uib-pagination>
+                            ng-change="jobList.refreshjobList()"></uib-pagination>
         </div>
     </div>
 </div>
