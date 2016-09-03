@@ -1,3 +1,151 @@
-<div>simulate</div>
+<!-- page heading start-->
+<div class="page-heading">
+        数据模拟工具
+    </div>
+    <!-- page heading end-->
+
+    <!--body wrapper start-->
+    <div class="wrapper">
+		<div class="row">
+        <div class="col-md-12">
+
+            <div class="panel" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        模拟正常交易数据
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.timeFrom" placeholder="起始时间,2016-01-01 12:12:55">
+                        </div>
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.timeTo" placeholder="结束时间,2016-01-01 12:12:55">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.moneyFrom" placeholder="起始金额,100">
+                        </div>
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.moneyTo" placeholder="结束金额,10000">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.city" placeholder="交易地点,中国上海上海">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" ng-model="simulate.amount" placeholder="生成数量,1000">
+                        </div>
+						<button type="submit" class="btn btn-primary" ng-click="simulate.submitnormal()">Submit</button>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+		</div>
+		<div class="row">
+        <div class="col-md-12">
+
+            <div class="panel" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        模拟欺诈交易数据
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="付款账号数量">
+                        </div>
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="收款账号起始数量">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="收款账号结束数量,100">
+                        </div>
+					
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="起始金额,10000">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="结束金额,50000">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="交易地点,中国上海上海">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="起始时间,2016-01-01 12:12:55">
+                        </div>
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="结束时间,2016-01-01 12:12:55">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="时间范围,-1">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="时间类型,1，2，3，5，10，12，13">
+                        </div>
+						<div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="百分比,0.8">
+                        </div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+		<div class="row">
+        <div class="col-md-12">
+
+            <div class="panel" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        模拟常用欺诈规则数据
+						规则1
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="生成数量">
+                        </div>
+
+                        <div class="col-md-3 form-group">
+                            <input type="text" class="form-control" placeholder="百分比">
+                        </div>
+						
+						<button type="submit" class="btn btn-primary">Submit</button>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
 <input type="text" ng-model="simulate.name">
 <button type="submit" ng-click="simulate.submit()">submit</button>

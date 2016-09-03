@@ -14,9 +14,15 @@ function Simulate(Ajax) {
 
     function add(vm) {
         return Ajax.doPost(
-            '/models',
+            '/simulateNormal',
             {
-                name: vm.name
+                timeFrom: vm.timeFrom,
+                timeTo: vm.timeTo,
+                moneyFrom: vm.moneyFrom,
+                moneyTo: vm.moneyTo,
+                city: vm.city,
+                amount: vm.amount
+                //name: vm.name
             }
         )
     }
