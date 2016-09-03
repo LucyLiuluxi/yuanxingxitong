@@ -34,7 +34,6 @@ function Ajax($rootScope, $http) {
             .get(
                 prefix + url,
                 {
-                    params: jsonParams,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     }

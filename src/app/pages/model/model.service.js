@@ -30,15 +30,10 @@ function Model(Ajax) {
     }
 
     function getDetail(id) {
-        return Ajax.doGet(
-            '/models',
-            {
-                modelId: id
-            }
-        );
+        return Ajax.doGet('/models/' + id);
     }
 
     function del(id) {
-        return Ajax.doDelete('/models' + id);
+        return Ajax.doDelete('/models/' + id);
     }
 }

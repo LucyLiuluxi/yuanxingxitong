@@ -69,3 +69,14 @@ fieldset[disabled] .btn-primary.active {
 .form-inline-group button {
     margin-right: 5px;
 }
+/*reset pagination*/
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus, .pagination > li.active > a, .pagination > li.active > a:hover, .pager li > a:hover, .pager li > a:focus {
+    background-color: #428bca;
+    border-color: #428bca;
+    color: #fff;
+}
+
+.pull-right-pagination {
+    float: right;
+    margin-top: 0;
+}
