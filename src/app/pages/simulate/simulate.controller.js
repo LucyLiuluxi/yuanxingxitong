@@ -8,11 +8,16 @@ SimulateCtrl.$inject = ['Simulate', 'AlertBox'];
 function SimulateCtrl(Simulate, AlertBox) {
     var vm = this;
 
-    vm.name = '';
+    vm.timeFrom = '';
+    vm.timeTo = '';
+    vm.moneyFrom = '';
+    vm.moneyTo = '';
+    vm.city = '';
+    vm.amount = '';
 
-    vm.submit = submit;
+    vm.submitnormal = submit;
 
-    function submit() {
+    function submit() {console.log(vm);
         Simulate
             .add(vm)
             .success(function(response) {
