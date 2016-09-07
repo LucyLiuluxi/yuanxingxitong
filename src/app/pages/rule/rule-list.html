@@ -1,0 +1,122 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        规则管理
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-12">
+            <p>
+                <button type="button" class="btn btn-primary" ng-click="ruleList.addPanelFlag = true">添加</button>
+            </p>
+        </div>
+    </div>
+    <div class="row" ng-if="ruleList.addPanelFlag">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    添加规则
+                </header>
+                <div class="panel-body form-inline-group">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">名称</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="请填写名称" ng-model="ruleList.ruleName"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">类型</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="请填写类型" ng-model="ruleList.type"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">风险等级</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="请填写风险等级" ng-model="ruleList.safeLevel"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">时间阈值</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="如<=12h或<=30min" ng-model="ruleList.time"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">交易量阈值</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium" type="text"  placeholder="请填数字" ng-model="ruleList.deals"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">是否常用地址</label>
+                            <div class="col-md-4 col-xs-11">
+                                <select class="form-control" ng-model="ruleList.isCommonFromPlace">
+                                    <option value="">请选择是否常用地址</option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"></label>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" ng-click="ruleList.submit()"> 保存 </button>
+                                <button type="button" class="btn btn-default" ng-click="ruleList.addPanelFlag = false"> 取消 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>业务类型</th>
+                    <th>风险等级</th>
+                    <th>触发次数</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="rule in ruleList.ruleList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ ::rule.rulename }}</td>
+                    <td>{{ ::rule.type }}</td>
+                    <td>{{ ::rule.safeLevel }}</td>
+                    <td>{{ ::rule.frequency }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" type="button" ng-click="ruleList.goToDetail(rule.id)">详情</button>
+                        <button class="btn btn-primary btn-xs" type="button" ng-click="ruleList.modify(rule)">修改</button>
+                        <button class="btn btn-danger btn-xs" type="button" ng-click="ruleList.del(rule.id)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <uib-pagination class="pagination-sm pull-right-pagination"
+                            total-items="ruleList.total"
+                            items-per-page="ruleList.pageSize"
+                            ng-model="ruleList.page"
+                            max-size="5"
+                            boundary-links="true"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页"
+                            rotate="true"
+                            boundary-link-numbers="true"
+                            ng-change="ruleList.refreshRuleList()"></uib-pagination>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->

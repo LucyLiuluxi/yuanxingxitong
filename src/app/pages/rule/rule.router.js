@@ -6,26 +6,20 @@ function ruleRouter($stateProvider) {
         .state('rule', {
             abstract: true,
             url: '/rule',
-            templateUrl: 'views/_shared/content.html',
-            resolve: {
-                loadPlugin: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        /*{
-                            serie: true,
-                            files: [
-                                'vendor/plupload/js/plupload.full.min.js',
-                                'vendor/qiniu-js-sdk/dist/qiniu.min.js'
-                            ]
-                        }*/
-                    ]);
-                }]
-            }
+            templateUrl: 'views/_shared/content.html'
         })
-        .state('rule.manage', {
-            url: '/manage',
-            templateUrl: 'views/rule.html',
-            controller: 'RuleCtrl',
-            controllerAs: 'rule',
+        .state('rule.list', {
+            url: '/list',
+            templateUrl: 'views/rule-list.html',
+            controller: 'RuleListCtrl',
+            controllerAs: 'ruleList',
             data: { pageTitle: '规则管理', specialClass: 'sticky-header' }
+        })
+        .state('rule.detail', {
+            url: '/detail/{ruleId}',
+            templateUrl: 'views/rule-detail.html',
+            controller: 'RuleDetailCtrl',
+            controllerAs: 'ruleDetail',
+            data: { pageTitle: '规则详情', specialClass: 'sticky-header' }
         });
 }
