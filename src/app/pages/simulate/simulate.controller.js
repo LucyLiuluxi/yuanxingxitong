@@ -14,11 +14,38 @@ function SimulateCtrl(Simulate, AlertBox) {
     vm.moneyTo = '';
     vm.city = '';
     vm.amount = '';
+    vm.channel = "";
+    vm.serviceType = "";
+    vm.ip = "";
+    vm.state = "";
+    vm.authMode = "";
+    vm.terminalNumber = "";
+
     vm.addNormalPanelFlag = true;
     vm.addFraudPanelFlag = false;
     vm.addRulePanelFlag = false;
 
-    vm.submitnormal = submit;
+    // vm.fraudNumIdFrom = '';
+    // vm.fraudNumIdTo1 = '';
+    // vm.fraudNumIdTo2 = '';
+    // vm.fraudTimeFrom = '';
+    // vm.fraudTimeTo = '';
+    // vm.fraudMoneyFrom = '';
+    // vm.fraudMoneyTo = '';
+    // vm.fraudNumCity = '';
+    // vm.timeRange = '';
+    // vm.timeType = '';
+    // vm.percent = '';
+    
+    // vm.fraudChannel = null;
+    // vm.fraudServiceType = null;
+    // vm.fraudIp = null;
+    // vm.fraudState = null;
+    // vm.fraudAuthMode = null;
+    // vm.fraudTerminalNumber = null;
+
+    vm.submitNormal = submitNormal;
+ //   vm.submitFraud = submitFraud;
     init();
 
 
@@ -27,6 +54,7 @@ function SimulateCtrl(Simulate, AlertBox) {
     }
 
     function initPicker() {
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii:ss'});
         $('.default-date-picker').datepicker({
             format: 'yyyy-mm-dd'
         });
@@ -54,9 +82,9 @@ function SimulateCtrl(Simulate, AlertBox) {
         }).data('datepicker');
     }
     
-    function submit() {console.log(vm);
+    function submitNormal() {console.log(vm);
         Simulate
-            .add(vm)
+            .addNormal(vm)
             .success(function(response) {
                 if(response.status === 0) {
                     AlertBox.success('添加成功');
@@ -66,4 +94,17 @@ function SimulateCtrl(Simulate, AlertBox) {
                 AlertBox.error(response.msg);
             });
     }
+
+    // function submitFraud() {console.log(vm);
+    //     Simulate
+    //         .addFraud(vm)
+    //         .success(function(response) {
+    //             if(response.status === 0) {
+    //                 AlertBox.success('添加成功');
+    //             }
+    //         })
+    //         .error(function(response) {
+    //             AlertBox.error(response.msg);
+    //         });
+    // }
 }
