@@ -25,27 +25,27 @@ function SimulateCtrl(Simulate, AlertBox) {
     vm.addFraudPanelFlag = false;
     vm.addRulePanelFlag = false;
 
-    // vm.fraudNumIdFrom = '';
-    // vm.fraudNumIdTo1 = '';
-    // vm.fraudNumIdTo2 = '';
-    // vm.fraudTimeFrom = '';
-    // vm.fraudTimeTo = '';
-    // vm.fraudMoneyFrom = '';
-    // vm.fraudMoneyTo = '';
-    // vm.fraudNumCity = '';
-    // vm.timeRange = '';
-    // vm.timeType = '';
-    // vm.percent = '';
+    vm.fraudNumIdFrom = '';
+    vm.fraudNumIdTo1 = '';
+    vm.fraudNumIdTo2 = '';
+    vm.fraudTimeFrom = '';
+    vm.fraudTimeTo = '';
+    vm.fraudMoneyFrom = '';
+    vm.fraudMoneyTo = '';
+    vm.fraudNumCity = '';
+    vm.timeRange = "";
+    vm.timeType = "";
+    vm.percent = "";
     
-    // vm.fraudChannel = null;
-    // vm.fraudServiceType = null;
-    // vm.fraudIp = null;
-    // vm.fraudState = null;
-    // vm.fraudAuthMode = null;
-    // vm.fraudTerminalNumber = null;
+    vm.fraudChannel = "";
+    vm.fraudServiceType = "";
+    vm.fraudIp = "";
+    vm.fraudState = "";
+    vm.fraudAuthMode = "";
+    vm.fraudTerminalNumber = "";
 
     vm.submitNormal = submitNormal;
- //   vm.submitFraud = submitFraud;
+    vm.submitFraud = submitFraud;
     init();
 
 
@@ -95,16 +95,16 @@ function SimulateCtrl(Simulate, AlertBox) {
             });
     }
 
-    // function submitFraud() {console.log(vm);
-    //     Simulate
-    //         .addFraud(vm)
-    //         .success(function(response) {
-    //             if(response.status === 0) {
-    //                 AlertBox.success('添加成功');
-    //             }
-    //         })
-    //         .error(function(response) {
-    //             AlertBox.error(response.msg);
-    //         });
-    // }
+    function submitFraud() {console.log(vm);
+        Simulate
+            .addFraud(vm)
+            .success(function(response) {
+                if(response.status === 0) {
+                    AlertBox.success('添加成功');
+                }
+            })
+            .error(function(response) {
+                AlertBox.error(response.msg);
+            });
+    }
 }

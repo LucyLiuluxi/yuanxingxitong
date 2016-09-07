@@ -37,23 +37,23 @@ function Simulate(Ajax) {
         return Ajax.doPost(
             '/simulateFraud',
             {
-                // fraudNumIdFrom: vm.fraudNumIdFrom,
-                // fraudNumIdTo1: vm.fraudNumIdTo1,
-                // fraudNumIdTo2: vm.fraudNumIdTo2,
-                // fraudTimeFrom: vm.fraudTimeFrom,
-                // fraudTimeTo: vm.fraudTimeTo,
-                // fraudMoneyFrom: vm.fraudMoneyFrom,
-                // fraudMoneyTo: vm.fraudMoneyTo,
-                // fraudNumCity: vm.fraudNumCity,
-                // timeRange: vm.timeRange,
-                // timeType: vm.timeType,
-                // percent: vm.percent,
-                // fraudChannel: vm.fraudChannel,
-                // fraudServiceType: vm.fraudServiceType,
-                // fraudIp: vm.fraudIp,
-                // fraudState: vm.fraudState,
-                // fraudAuthMode: vm.fraudAuthMode,
-                // fraudTerminalNumber: vm.fraudTerminalNumber
+                fraudNumIdFrom: vm.fraudNumIdFrom,
+                fraudNumIdTo1: vm.fraudNumIdTo1,
+                fraudNumIdTo2: vm.fraudNumIdTo2,
+                fraudTimeFrom: vm.fraudTimeFrom,
+                fraudTimeTo: vm.fraudTimeTo,
+                fraudMoneyFrom: vm.fraudMoneyFrom,
+                fraudMoneyTo: vm.fraudMoneyTo,
+                fraudNumCity: vm.fraudNumCity,
+                timeRange: vm.timeRange,
+                timeType: vm.timeType,
+                percent: vm.percent,
+                fraudChannel: vm.fraudChannel,
+                fraudServiceType: vm.fraudServiceType,
+                fraudIp: vm.fraudIp,
+                fraudState: vm.fraudState,
+                fraudAuthMode: vm.fraudAuthMode,
+                fraudTerminalNumber: vm.fraudTerminalNumber
             }
         )
     }
