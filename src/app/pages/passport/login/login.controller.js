@@ -17,7 +17,7 @@ function LoginCtrl($rootScope, Passport, AlertBox) {
             .login(vm)
             .success(function(response) {
                 if(response.status === 0) {
-                    //$rootScope.$state.go('rule.manage');
+                    $rootScope.$state.go('rule.list');
                 } else {
                     AlertBox.error(response.msg);
                 }
