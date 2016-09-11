@@ -19,6 +19,7 @@
                     <th>收款人</th>
                     <th>金额</th>
                     <th>安全等级</th>
+                    <th>调查处理</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,10 @@
                     <td>{{ ::warning.tousername }}</td>
                     <td>{{ ::warning.money }}</td>
                     <td>{{ ::warning.safeLevel }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" type="button">欺诈</button>
+                        <button class="btn btn-primary btn-xs" type="button">非欺诈</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>

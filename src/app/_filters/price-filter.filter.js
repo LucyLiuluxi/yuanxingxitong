@@ -1,16 +1,18 @@
 /**
  * 商品价格过滤器
  */
-priceFilter.$inject = [];
+userTypeFilter.$inject = [];
 
-function priceFilter() {
-    var pFilter = function(input) {
-        if(input === null || input === '' || typeof input === 'undefined' || input < 0) {
-            return '¥0.00';
-        } else {
-            return '¥' + parseFloat(input).toFixed(2);
+function userTypeFilter() {
+    var filter = function(input) {
+        switch (input) {
+            case 0: return '黑名单';
+            case 1: return '白名单';
+            case 2: return '灰名单';
+            case 3: return '高风险帐号';
+            default: return '出错';
         }
     };
 
-    return pFilter;
+    return filter;
 }

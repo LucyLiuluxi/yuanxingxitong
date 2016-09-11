@@ -16,9 +16,9 @@ function AlertBox($timeout) {
     }
 
     function error(msg) {
-        $('.alert').show().find('span').text(msg);
+        $('.J_error').show().find('span').text(msg);
         $timeout(function() {
-            $('.alert').hide();
+            $('.J_error').hide();
         }, 2000);
     }
 }

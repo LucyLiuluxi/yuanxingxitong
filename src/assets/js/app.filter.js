@@ -1,4 +1,4 @@
 
 angular
     .module('shyh')
-    .filter('priceFilter', priceFilter);
+    .filter('userTypeFilter', userTypeFilter);
