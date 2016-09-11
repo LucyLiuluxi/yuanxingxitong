@@ -62,6 +62,11 @@
                     <li><a ui-sref="list.phone"> 电话名单</a></li>
                 </ul>
             </li>
+            <li ng-class="{active: $state.includes('warning')}">
+                <a ui-sref="warning.list">
+                    <i class="fa fa-laptop"></i> <span>警报展示</span>
+                </a>
+            </li>
             <li ng-click="navigation.logout()">
                 <a href="">
                     <i class="fa fa-sign-in"></i> <span>退出登录</span>
