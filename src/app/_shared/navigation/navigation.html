@@ -38,6 +38,16 @@
                     <i class="fa fa-home"></i> <span>概览</span>
                 </a>
             </li>
+            <li class="menu-list" ng-class="{active: $state.includes('simulate')}">
+                <a ui-sref="simulate.add">
+                    <i class="fa fa-bullhorn"></i> <span>数据采集</span>
+                </a>
+                <ul class="sub-menu-list">
+                    <li><a ui-sref="simulate.add"> 模拟数据</a></li>
+                    <li><a> 银行业务数据</a></li>
+                    <li><a> 第三方数据</a></li>
+                </ul>
+            </li>
             <li class="menu-list" ng-class="{active: $state.includes('model') || $state.includes('job')}">
                 <a ui-sref="model.list">
                     <i class="fa fa-bullhorn"></i> <span>模型管理</span>
