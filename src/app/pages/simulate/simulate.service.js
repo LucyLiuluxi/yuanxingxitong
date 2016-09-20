@@ -55,6 +55,6 @@ function Simulate(Ajax) {
                 fraudAuthMode: vm.fraudAuthMode,
                 fraudTerminalNumber: vm.fraudTerminalNumber
             }
-        )
+        );
     }
 }

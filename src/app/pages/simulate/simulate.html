@@ -48,22 +48,25 @@
 									
 
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="simulate.opChannel"> 交易渠道
+										  	<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="simulate.opChannel" ng-change="simulate.clearChannel()"> 交易渠道
 										</label>
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="simulate.opServiceType"> 业务类型
+										  	<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="simulate.opServiceType" ng-change="simulate.clearSt()"> 业务类型
 										</label>
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="simulate.opAuthMode"> 认证方式
+										  	<input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="simulate.opAuthMode" ng-change="simulate.clearAm()"> 认证方式
 										</label>
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="simulate.opIP"> IP地址
+										  	<input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="simulate.opIP" ng-change="simulate.clearIp()"> IP地址
 										</label>
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="simulate.opState"> 交易状态
+										  	<input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="simulate.opState" ng-change="simulate.clearState()"> 交易状态
 										</label>
 										<label class="checkbox-inline">
-										  	<input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="simulate.opTerminalNumber"> 终端号
+										  	<input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="simulate.opTerminalNumber" ng-change="simulate.clearTn()"> 终端号
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox7" value="option7" ng-model="simulate.opMac" ng-change="simulate.clearMac()"> mac地址
 										</label>
 											
 	                                </div> 
@@ -122,18 +125,6 @@
                             </div>
                     </div>
 
-		        	<!-- <div class="form-group">
-                            <label class="control-label col-lg-2">时间范围</label>
-                            <div class="col-lg-4">
-                                <div class="input-group input-large custom-date-range" data-date="2016-09-03" data-date-format="yyyy-mm-dd">
-                                    <input type="text" class="form-control dpd1" name="from" ng-model="simulate.timeFrom">
-                                    <span class="input-group-addon">To</span>
-                                    <input type="text" class="form-control dpd2" name="to" ng-model="simulate.timeTo">
-                                </div>
-                                <p class="help-block">选择交易时间区间，如2016-01-02  To 2016-01-02 </p>
-                            </div>
-                    </div> -->
-                    
                     <div class="form-group">
                         <label class="col-lg-2 col-sm-2 control-label">金额范围</label>
                         <div class="col-lg-4">
@@ -149,7 +140,7 @@
                         <label class="col-lg-2 col-sm-2 control-label">交易地点</label>
                         <div class="col-lg-4">
                             <input type="text" class="form-control" ng-model="simulate.city">
-                            <p class="help-block">选择交易地点，如：中国河北承德</p>
+                            <p class="help-block">选择交易地点，如：中国广东茂名</p>
                         </div>
                     </div>
                     <div class="form-group" ng-show="simulate.opChannel">
@@ -158,10 +149,11 @@
                                 <select class="form-control" ng-model="simulate.channel">
                                     <option value="">请选择渠道</option>
                                     <option value="0">随机选取</option>
-                                    <option value="1">网上银行</option>
-                                    <option value="2">手机银行</option>
-                                    
+                                    <option value="1">ATM</option>
+                                    <option value="2">POS机</option>
+                                    <option value="3">柜台转账</option>   
                                 </select>
+                                <p class="help-block"></p>
                             </div>
                     </div>
                     <div class="form-group" ng-show="simulate.opServiceType">
@@ -170,9 +162,12 @@
                                 <select class="form-control" ng-model="simulate.serviceType">
                                     <option value="">请选择业务类型</option>
                                     <option value="0">随机选取</option>
-                                    <option value="1">类型1</option>
-                                    <option value="2">类型2</option>                                  
+                                    <option value="1">网上银行</option>
+                                    <option value="2">手机银行</option>
+                                    <option value="3">微信银行</option>
+                                    <option value="4">上行快线</option>                                  
                                 </select>
+                                <p class="help-block"></p>
                             </div>
                     </div>
                     <div class="form-group" ng-show="simulate.opAuthMode">
@@ -181,31 +176,42 @@
                                 <select class="form-control" ng-model="simulate.authMode">
                                     <option value="">请选择认证方式</option>
                                     <option value="0">随机选取</option>
-                                    <option value="1">类型1</option>
-                                    <option value="2">类型2</option>
-                                    
+                                    <option value="1">E盾</option>
+                                    <option value="2">手机盾</option>
+                                    <option value="3">短信验证码</option>
                                 </select>
+                                <p class="help-block"></p>
                             </div>
                     </div>
                     <div class="form-group" ng-show="simulate.opIP">
                         <label class="col-lg-2 col-sm-2 control-label">IP地址</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" ng-model="simulate.ip">
-                            <p class="help-block">随机生成ip地址</p>
-                        </div>
+                        	<div class="col-lg-4">
+                        		<select class="form-control" ng-model="simulate.ip">
+                                    <option value="0">随机生成ip地址</option>
+                                </select>
+                            	<p class="help-block"></p>
+                        	</div>
                     </div>
                     <div class="form-group" ng-show="simulate.opState">
                         <label class="col-lg-2 col-sm-2 control-label">交易状态</label>
                         <div class="col-lg-4">
                             <input type="text" class="form-control" ng-model="simulate.state">
-                            <p class="help-block">回应代码，交易成功或失败</p>
+                            <p class="help-block">回应代码，暂定1表示交易成功；0表示交易失败</p>
                         </div>
+                        <p class="help-block"></p>
                     </div>
                     <div class="form-group" ng-show="simulate.opTerminalNumber">
                         <label class="col-lg-2 col-sm-2 control-label">终端号</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" ng-model="simulate.terminalNumber">
-                            <p class="help-block">随机生成终端号</p>
+                            <input type="text" class="form-control" ng-model="simulate.terminalNumber" placeholder="请输入终端号">
+                            <p class="help-block">0表示随机生成终端号</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opMac">
+                        <label class="col-lg-2 col-sm-2 control-label">mac地址</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.mac">
+                            <p class="help-block">填写mac地址，0表示随机</p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -218,6 +224,8 @@
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
                             <button type="submit" class="btn btn-primary" ng-click="simulate.submitNormal()">提交</button>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp
+                            <button type="submit" class="btn btn-primary" ng-click="simulate.clearNormal()">清空</button>
                         </div>
                     </div>
 	            </form>
@@ -302,7 +310,7 @@
 	                        <label class="col-lg-2 col-sm-2 control-label">交易地点</label>
 	                        <div class="col-lg-4">
 	                            <input type="text" class="form-control" ng-model="simulate.fraudNumCity">
-	                            <p class="help-block">选择交易地点，如：中国河北承德</p>
+	                            <p class="help-block">选择交易地点，如：中国广东茂名</p>
 	                        </div>
 	                    </div>
 
@@ -312,10 +320,11 @@
                                 <select class="form-control" ng-model="simulate.fraudChannel">
                                     <option value="">请选择渠道</option>
                                     <option value="0">随机选取</option>
-                                    <option value="1">网上银行</option>
-                                    <option value="2">手机银行</option>
-                                    
+                                    <option value="1">ATM</option>
+                                    <option value="2">POS机</option>
+                                    <option value="3">柜台转账</option>
                                 </select>
+                                <p class="help-block"></p>
                             </div>
 	                    </div>
 	                    <div class="form-group" ng-show="simulate.opServiceType">
@@ -324,9 +333,12 @@
 	                                <select class="form-control" ng-model="simulate.fraudServiceType">
 	                                    <option value="">请选择业务类型</option>
 	                                    <option value="0">随机选取</option>
-	                                    <option value="1">类型1</option>
-	                                    <option value="2">类型2</option>                                  
+	                                    <option value="1">网上银行</option>
+	                                    <option value="2">手机银行</option>
+	                                    <option value="3">微信银行</option>
+	                                    <option value="4">上行快线</option>                                  
 	                                </select>
+	                                <p class="help-block"></p>
 	                            </div>
 	                    </div>
 	                    <div class="form-group" ng-show="simulate.opAuthMode">
@@ -335,17 +347,20 @@
 	                                <select class="form-control" ng-model="simulate.fraudAuthMode">
 	                                    <option value="">请选择认证方式</option>
 	                                    <option value="0">随机选取</option>
-	                                    <option value="1">类型1</option>
-	                                    <option value="2">类型2</option>
-	                                    
+	                                    <option value="1">E盾</option>
+	                                    <option value="2">手机盾</option>
+	                                    <option value="3">短信验证码</option>
 	                                </select>
+	                                <p class="help-block"></p>
 	                            </div>
 	                    </div>
 	                    <div class="form-group" ng-show="simulate.opIP">
 	                        <label class="col-lg-2 col-sm-2 control-label">IP地址</label>
 	                        <div class="col-lg-4">
-	                            <input type="text" class="form-control" ng-model="simulate.fraudIp">
-	                            <p class="help-block">随机生成ip地址</p>
+	                        	<select class="form-control" ng-model="simulate.fraudIp">
+                                    <option value="0">随机生成ip地址</option>
+                                </select>
+	                            <p class="help-block"></p>
 	                        </div>
 	                    </div>
 	                    <div class="form-group" ng-show="simulate.opState">
@@ -362,7 +377,13 @@
 	                            <p class="help-block">随机生成终端号</p>
 	                        </div>
 	                    </div>
-
+	                    <div class="form-group" ng-show="simulate.opMac">
+	                        <label class="col-lg-2 col-sm-2 control-label">mac地址</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudMac">
+	                            <p class="help-block">填写mac地址，0表示随机</p>
+	                        </div>
+                    	</div>
 	                    <div class="form-group">
 	                        <label class="col-lg-2 col-sm-2 control-label">百分比</label>
 	                        <div class="col-lg-4">
@@ -374,6 +395,8 @@
 	                    <div class="form-group">
 	                        <div class="col-lg-offset-2 col-lg-10">
 	                            <button type="submit" class="btn btn-primary" ng-click="simulate.submitFraud()">提交</button>
+	                            &nbsp&nbsp&nbsp&nbsp&nbsp
+                            	<button type="submit" class="btn btn-primary" ng-click="simulate.clearFraud()">清空</button>
 	                        </div>
 	                    </div>
 		            </form>
