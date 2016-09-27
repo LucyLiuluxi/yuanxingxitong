@@ -46,6 +46,16 @@ function SimulateCtrl(Simulate, AlertBox) {
 
     vm.submitNormal = submitNormal;
     vm.submitFraud = submitFraud;
+    
+    vm.clearNormal = clearNormal;
+    vm.clearFraud = clearFraud;
+    vm.clearChannel = clearChannel;
+    vm.clearSt = clearSt;
+    vm.clearIp = clearIp;
+    vm.clearState = clearState;
+    vm.clearAm = clearAm;
+    vm.clearTn = clearTn;
+
     init();
 
 
@@ -83,6 +93,10 @@ function SimulateCtrl(Simulate, AlertBox) {
     }
     
     function submitNormal() {console.log(vm);
+        if(vm.timeFrom === ''|| vm.timeTo === '' || vm.moneyFrom === ''||vm.moneyTo === ''||vm.city === ''||vm.amount === ''){
+            AlertBox.error('输入有误');
+            return;
+        }
         Simulate
             .addNormal(vm)
             .success(function(response) {
@@ -107,4 +121,64 @@ function SimulateCtrl(Simulate, AlertBox) {
                 AlertBox.error(response.msg);
             });
     }
+    function clearNormal(){
+        vm.timeFrom = '';
+        vm.timeTo = '';
+        vm.moneyFrom = '';
+        vm.moneyTo = '';
+        vm.city = '';
+        vm.amount = '';
+        vm.channel = "";
+        vm.serviceType = "";
+        vm.ip = "";
+        vm.state = "";
+        vm.authMode = "";
+        vm.terminalNumber = "";
+    }
+    function clearFraud(){
+        vm.fraudNumIdFrom = '';
+        vm.fraudNumIdTo1 = '';
+        vm.fraudNumIdTo2 = '';
+        vm.fraudTimeFrom = '';
+        vm.fraudTimeTo = '';
+        vm.fraudMoneyFrom = '';
+        vm.fraudMoneyTo = '';
+        vm.fraudNumCity = '';
+        vm.timeRange = "";
+        vm.timeType = "";
+        vm.percent = "";
+        
+        vm.fraudChannel = "";
+        vm.fraudServiceType = "";
+        vm.fraudIp = "";
+        vm.fraudState = "";
+        vm.fraudAuthMode = "";
+        vm.fraudTerminalNumber = "";
+
+    }
+    function clearChannel(){
+        vm.channel=""; 
+        vm.fraudChannel = "";
+    }
+     function clearSt(){
+        vm.serviceType = "";
+        vm.fraudServiceType = "";
+     }
+     function clearIp(){
+        vm.ip = "";
+        vm.fraudIp = "";
+     }
+     function clearState(){
+        vm.state = "";
+        vm.fraudState = "";
+     }
+     function clearAm(){
+        vm.authMode = "";
+        vm.fraudAuthMode = "";
+     }
+     function clearTn(){
+        vm.terminalNumber = "";
+        vm.fraudTerminalNumber = "";
+     }
+    
 }
