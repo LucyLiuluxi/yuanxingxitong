@@ -1257,6 +1257,13 @@ ul.bar-legend li span.red {
     background: #fb8575;
 }
 
+ul.bar-legend li span.orange {
+    background: #f0ad4e;
+}
+
+ul.bar-legend li span.light-green {
+    background: #6dc5a3;
+}
 /*-----------------------------------
     REVENUE STATES STYLES
 -------------------------------------*/
