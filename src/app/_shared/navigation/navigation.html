@@ -80,57 +80,19 @@
                     <i class="fa fa-laptop"></i> <span>警报展示</span>
                 </a>
             </li>
+            <li class="menu-list" ng-class="{active: $state.includes('analysis')}">
+                <a ui-sref="analysis.warning">
+                    <i class="fa fa-file-text"></i> <span>分析统计</span>
+                </a>
+                <ul class="sub-menu-list">
+                    <li><a ui-sref="analysis.warning"> 可疑警报统计</a></li>
+                    <li><a ui-sref="analysis.trade"> 欺诈交易统计</a></li>
+                    <li><a ui-sref="analysis.rule"> 规则触发统计</a></li>
+                </ul>
+            </li>
             <li ng-click="navigation.logout()">
                 <a href="">
                     <i class="fa fa-sign-in"></i> <span>退出登录</span>
-                </a>
-            </li>
-
-        </ul>
-        <ul class="nav nav-pills nav-stacked custom-nav">
-            <li>
-                <a href="javascript:void(0)">
-                    <i class="fa fa-home"></i> <span>概览</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-tasks"></i> <span>数据量统计</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-bullhorn"></i> <span>模型训练</span>
-                </a>
-            </li>
-            <li ng-class="{active: $state.includes('rule')}">
-                <a href="javascript:void(0)">
-                    <i class="fa fa-laptop"></i> <span>规则管理</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-envelope"></i> <span>反欺诈检测</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-bar-chart-o"></i> <span>警报管理</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-cogs"></i> <span>分析统计</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-th-list"></i> <span>事件管理</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="fa fa-file-text"></i> <span>名单管理</span>
                 </a>
             </li>
 

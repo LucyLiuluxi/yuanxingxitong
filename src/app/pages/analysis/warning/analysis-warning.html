@@ -1,0 +1,115 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        交易预警统计
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    地区分布
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <div id="district-donut" class="revenue-graph"></div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <ul class="bar-legend">
+                                <li><span class="blue"></span> 广东省</li>
+                                <li><span class="green"></span> 福建省</li>
+                                <li><span class="purple"></span> 上海市</li>
+                                <li><span class="red"></span> 北京市</li>
+                                <li><span class="orange"></span> 贵州省</li>
+                                <li><span class="light-green"></span> 其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    金额分布
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <div id="money-donut" class="revenue-graph"></div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <ul class="bar-legend">
+                                <li><span class="blue"></span> 0-5000元</li>
+                                <li><span class="green"></span> 5000-10000元</li>
+                                <li><span class="purple"></span> 10000-25000元</li>
+                                <li><span class="red"></span> 25000-50000元</li>
+                                <li><span class="orange"></span> 50000元以上</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    业务分布
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <div id="business-donut" class="revenue-graph"></div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <ul class="bar-legend">
+                                <li><span class="blue"></span> 网上银行</li>
+                                <li><span class="green"></span> 手机银行</li>
+                                <li><span class="purple"></span> 电话银行</li>
+                                <li><span class="red"></span> 微信银行</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>客户号</th>
+                    <th>付款账号</th>
+                    <th>付款人名称</th>
+                    <th>收款人账号</th>
+                    <th>收款人名称</th>
+                    <th>交易时间</th>
+                    <th>交易金额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="rule in analysisWarning.ruleList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ ::rule.id }}</td>
+                    <td>{{ ::rule.fromusername }}</td>
+                    <td>{{ ::rule.fromuser }}</td>
+                    <td>{{ ::rule.tousername }}</td>
+                    <td>{{ ::rule.touser }}</td>
+                    <td>{{ ::rule.datetime }}</td>
+                    <td>{{ ::rule.money | currency: '¥' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->

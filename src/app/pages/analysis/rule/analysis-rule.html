@@ -1,0 +1,62 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        规则触发统计
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    业务分布
+                </header>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <div id="graph-donut" class="revenue-graph"></div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <ul class="bar-legend">
+                                <li><span class="blue"></span> 网上银行</li>
+                                <li><span class="green"></span> 手机银行</li>
+                                <li><span class="purple"></span> 电话银行</li>
+                                <li><span class="red"></span> 微信银行</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>规则ID</th>
+                    <th>规则描述</th>
+                    <th>时间</th>
+                    <th>触发次数</th>
+                    <th>命中百分比</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="rule in analysisRule.ruleList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ ::rule.id }}</td>
+                    <td>{{ ::rule.rulename }}</td>
+                    <td>{{ ::rule.createtime }}</td>
+                    <td>{{ ::rule.frequency }}</td>
+                    <td>{{ (rule.hit / rule.frequency * 100).toFixed(2) + '%' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->
