@@ -34,7 +34,7 @@
                     添加模型
                 </header>
                 <div class="panel-body form-inline-group">
-                    <form action="#" class="form-horizontal ">
+                    <form class="form-horizontal ">
                         <div class="form-group">
                             <label class="control-label col-lg-2">名称</label>
                             <div class="col-md-4 col-xs-11">
@@ -79,7 +79,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="model in modelList.modelList">
-                    <td>{{ $index }}</td>
+                    <td>{{ $index + 1 }}</td>
                     <td>{{ ::model.model }}</td>
                     <td>{{ ::model.template_name }}</td>
                     <td>{{ ::model.status }}</td>

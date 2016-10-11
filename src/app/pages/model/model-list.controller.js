@@ -51,7 +51,8 @@ function ModelListCtrl($rootScope, Model, AlertBox) {
                     vm.modelName = '';
                     vm.templateId = '';
                     vm.addPanelFlag = false;
-                    refreshModelList();
+                    //refreshModelList();
+                    vm.modelList.push(response.data);
                 } else {
                     AlertBox.error(response.msg);
                 }
@@ -59,6 +60,8 @@ function ModelListCtrl($rootScope, Model, AlertBox) {
     }
 
     function del(modelId) {
+        vm.modelList.splice(modelId - 1, 1);
+        return;
         Model
             .del(modelId)
             .success(function(response) {
