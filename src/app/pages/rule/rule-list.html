@@ -9,10 +9,44 @@
 <!--body wrapper start-->
 <div class="wrapper">
     <div class="row top-operation-btn-group">
-        <div class="col-lg-12">
+        <div class="col-lg-4">
             <p>
                 <button type="button" class="btn btn-primary" ng-click="ruleList.addPanelFlag = true">添加</button>
             </p>
+        </div>
+        <div class="col-lg-8">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3 pull-right">
+                        <select class="form-control">
+                            <option>excel批量操作</option>
+                            <option>模板下载</option>
+                            <option>批量导出</option>
+                            <option>批量导入</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 pull-right">
+                        <select class="form-control">
+                            <option>所有风险等级</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 pull-right">
+                        <select class="form-control">
+                            <option>所有业务类型</option>
+                            <option>微信银行</option>
+                            <option>网上银行</option>
+                            <option>微信银行</option>
+                            <option>上行快线</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row" ng-if="ruleList.addPanelFlag">
@@ -85,6 +119,7 @@
                     <th>业务类型</th>
                     <th>风险等级</th>
                     <th>触发次数</th>
+                    <th>当前版本</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -95,6 +130,11 @@
                     <td>{{ ::rule.type }}</td>
                     <td>{{ ::rule.safeLevel }}</td>
                     <td>{{ ::rule.frequency }}</td>
+                    <td>
+                        {{ ::rule.version }}
+                        <button class="btn btn-primary btn-xs" type="button">更新版本</button>
+                        <button class="btn btn-primary btn-xs" type="button">回滚版本</button>
+                    </td>
                     <td>
                         <button class="btn btn-primary btn-xs" type="button" ng-click="ruleList.goToDetail(rule.id)">详情</button>
                         <button class="btn btn-primary btn-xs" type="button" ng-click="ruleList.modify(rule)">修改</button>
