@@ -20,6 +20,7 @@ function SimulateCtrl(Simulate, AlertBox) {
     vm.state = "";
     vm.authMode = "";
     vm.terminalNumber = "";
+    vm.mac = "";
 
     vm.addNormalPanelFlag = true;
     vm.addFraudPanelFlag = false;
@@ -43,6 +44,7 @@ function SimulateCtrl(Simulate, AlertBox) {
     vm.fraudState = "";
     vm.fraudAuthMode = "";
     vm.fraudTerminalNumber = "";
+    vm.fraudMac= "";
 
     vm.submitNormal = submitNormal;
     vm.submitFraud = submitFraud;
@@ -110,6 +112,11 @@ function SimulateCtrl(Simulate, AlertBox) {
     }
 
     function submitFraud() {console.log(vm);
+        if(vm.fraudNumIdFrom === ''|| vm.fraudNumIdTo1 === '' || vm.fraudNumIdTo2 === ''||vm.fraudTimeFrom === ''||vm.fraudTimeTo === ''||vm.fraudMoneyFrom === ''||vm.fraudMoneyTo ==='' ||vm.fraudNumCity ===''||
+        vm.timeRange === ''|| vm.timeType === '' ||vm.percent === ''){
+            AlertBox.error('输入有误');
+            return;
+        }
         Simulate
             .addFraud(vm)
             .success(function(response) {
@@ -154,6 +161,7 @@ function SimulateCtrl(Simulate, AlertBox) {
         vm.fraudState = "";
         vm.fraudAuthMode = "";
         vm.fraudTerminalNumber = "";
+        vm.fraudMac = "";
 
     }
     function clearChannel(){

@@ -28,7 +28,8 @@ function Simulate(Ajax) {
                 IP: vm.ip,
                 state: vm.state,
                 authMode: vm.authMode,
-                terminalNumber: vm.terminalNumber
+                terminalNumber: vm.terminalNumber,
+                mac: vm.mac
             }
         );
     }
@@ -53,7 +54,8 @@ function Simulate(Ajax) {
                 fraudIp: vm.fraudIp,
                 fraudState: vm.fraudState,
                 fraudAuthMode: vm.fraudAuthMode,
-                fraudTerminalNumber: vm.fraudTerminalNumber
+                fraudTerminalNumber: vm.fraudTerminalNumber,
+                fraudMac: vm.fraudMac
             }
         );
     }
