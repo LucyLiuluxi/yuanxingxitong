@@ -33,8 +33,8 @@
 
         <!--sidebar nav start-->
         <ul class="nav nav-pills nav-stacked custom-nav">
-            <li>
-                <a href="javascript:void(0)">
+            <li ng-class="{active: $state.includes('preview')}">
+                <a ui-sref="preview.home">
                     <i class="fa fa-home"></i> <span>概览</span>
                 </a>
             </li>
