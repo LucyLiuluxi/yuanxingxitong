@@ -1,8 +1,8 @@
 
 'use strict';
 
-var proxyHost = 'http://private-anon-3c9499cc9f-bankproto.apiary-mock.com/ajax';
-//var proxyHost = 'http://139.129.128.90:8080';
+//var proxyHost = 'http://private-anon-3c9499cc9f-bankproto.apiary-mock.com/ajax';
+var proxyHost = 'http://10.242.139.197:8080/ajax';
 var cdnDomain = '';
 
 var templateConfig = {
@@ -136,7 +136,8 @@ gulp.task('build:template', function() {
 // index task
 gulp.task('build:html:index', function() {
     return gulp.src([
-            paths.app + '/index.html'
+            paths.app + '/index.html',
+            paths.app + '/map.html'
         ])
         .pipe(template(templateConfig))
         .pipe(cdn({
