@@ -18,9 +18,9 @@ function AnalysisTradeCtrl(Analysis, AlertBox) {
             .success(function(response) {
                 if(response.status === 0) {
                     vm.ruleList = response.data.data;
-                    drawBusinessDonut(response.data.businessDistribute);
-                    drawDistrictDonut(response.data.areaDistribute);
-                    drawMoneyDonut(response.data.moneyDistribute);
+                    //drawBusinessDonut(response.data.businessDistribute);
+                    //drawDistrictDonut(response.data.areaDistribute);
+                    //drawMoneyDonut(response.data.moneyDistribute);
                 } else {
                     AlertBox.error(response.msg);
                 }

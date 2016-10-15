@@ -18,7 +18,7 @@ function AnalysisRuleCtrl(Analysis, AlertBox) {
             .success(function(response) {
                 if(response.status === 0) {
                     vm.ruleList = response.data.rules;
-                    var business = response.data.businessDistribute;
+                    /*var business = response.data.businessDistribute;
                     var total = business.sjyh + business.dhyh + business.wsyh + business.wxyh;
                     Morris.Donut({
                         element: 'graph-donut',
@@ -34,7 +34,7 @@ function AnalysisRuleCtrl(Analysis, AlertBox) {
                             '#4acacb','#6a8bc0','#5ab6df','#fe8676'
                         ],
                         formatter: function (x, data) { return data.formatted; }
-                    });
+                    });*/
                 } else {
                     AlertBox.error(response.msg);
                 }
