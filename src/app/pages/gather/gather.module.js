@@ -8,4 +8,5 @@ angular
     .config(GatherRouter)
     .controller('GatherBankCtrl', GatherBankCtrl)
     .controller('GatherThirdCtrl', GatherThirdCtrl)
+    .controller('GatherTableCtrl', GatherTableCtrl)
     .factory('Gather', Gather);

@@ -84,3 +84,9 @@ fieldset[disabled] .btn-primary.active {
 .table tr.has-bg {
     background-color: #f9f9f9;
 }
+.mr-20 {
+    margin-right: 20px;
+}
+.mr-40 {
+    margin-right: 40px;
+}

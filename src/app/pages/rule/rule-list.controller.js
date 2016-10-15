@@ -16,12 +16,15 @@ function RuleListCtrl($rootScope, Rule, AlertBox) {
     vm.page = 1;
     vm.pageSize = 10;
     vm.total = 0;
+    vm.extraConditionList = [];
 
     vm.refreshRuleList = refreshRuleList;
     vm.submit = submit;
     vm.modify = modify;
     vm.del = del;
     vm.goToDetail = goToDetail;
+    vm.addCondition = addCondition;
+    vm.deleteCondition = deleteCondition;
 
     refreshRuleList();
 
@@ -129,5 +132,17 @@ function RuleListCtrl($rootScope, Rule, AlertBox) {
         vm.time = '';
         vm.deals = '';
         vm.isCommonFromPlace = '';
+    }
+
+    function addCondition() {
+        vm.extraConditionList.push({
+            attribute: '',
+            operator: '',
+            threshold: ''
+        });
+    }
+
+    function deleteCondition(index) {
+        vm.extraConditionList.splice(index, 1);
     }
 }

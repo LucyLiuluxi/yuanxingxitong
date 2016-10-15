@@ -37,14 +37,34 @@
                             <td class="text-center" colspan="3">条件</td>
                         </tr>
                         <tr class="has-bg">
-                            <td>时间阈值</td>
-                            <td>交易量阈值</td>
-                            <td>是否常用地址</td>
+                            <td>名称</td>
+                            <td>参数</td>
+                            <td>涉及字段</td>
                         </tr>
                         <tr>
+                            <td>时间</td>
                             <td>{{ ruleDetail.ruleFactor.time }}</td>
+                            <td>datetime</td>
+                        </tr>
+                        <tr>
+                            <td>交易量</td>
                             <td>{{ ruleDetail.ruleFactor.deals }}</td>
+                            <td>datetime,fromuser</td>
+                        </tr>
+                        <tr>
+                            <td>是否常用地址</td>
                             <td>{{ ruleDetail.ruleFactor.isCommonFromPlace }}</td>
+                            <td>fromplace</td>
+                        </tr>
+                        <tr>
+                            <td>日转出金额数</td>
+                            <td>{{ ruleDetail.ruleFactor.moneyOfDay }}</td>
+                            <td>datetime,fromuser,money</td>
+                        </tr>
+                        <tr>
+                            <td>日转出用户数</td>
+                            <td>{{ ruleDetail.ruleFactor.toUsersOfDay }}</td>
+                            <td>datetime,fromuser,touser</td>
                         </tr>
                         </tbody>
                     </table>

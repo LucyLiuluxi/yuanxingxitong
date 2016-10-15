@@ -25,5 +25,12 @@ function GatherRouter($stateProvider) {
             controller: 'GatherThirdCtrl',
             controllerAs: 'gatherThird',
             data: { pageTitle: '数据采集 ｜ 第三方数据', specialClass: 'sticky-header' }
+        })
+        .state('gather.table', {
+            url: '/table',
+            templateUrl: 'views/gather-table.html',
+            controller: 'GatherTableCtrl',
+            controllerAs: 'gatherTable',
+            data: { pageTitle: '数据采集 ｜ 业务数据表', specialClass: 'sticky-header' }
         });
 }
