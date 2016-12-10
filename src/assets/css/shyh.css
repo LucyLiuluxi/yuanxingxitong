@@ -90,3 +90,19 @@ fieldset[disabled] .btn-primary.active {
 .mr-40 {
     margin-right: 40px;
 }
+
+.detect-model {
+    opacity: 1;
+    top: 50%;
+    margin-top: -60px;
+}
+.modal-dialog {
+    width: 400px;
+}
+.modal-body {
+    text-align: center;
+}
+.modal-dialog button {
+    background-color: #65CEA7;
+    margin: 0 20px;
+}

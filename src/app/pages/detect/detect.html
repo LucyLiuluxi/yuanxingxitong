@@ -1,0 +1,67 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        交易检测
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-12">
+            <div class="modal fade detect-model">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            <h4 class="modal-title">选择导入结果方式</h4>
+                        </div>
+                        <div class="modal-body">
+                            <button type="button" class="btn btn-success" ng-click="detect.showInPage()">页面展示</button>
+                            <button type="button" class="btn btn-success" ng-click="detect.importExcel()">导入成excel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <p>{{detect.dialog}}
+                <input type="file" class="btn btn-primary" value="excel批量导入" onchange="angular.element(this).scope().uploadImage()" >
+                <!--<button type="button" class="btn btn-primary">excel批量导入</button>-->
+            </p>
+        </div>
+    </div>
+    <div class="row" ng-show="detect.fraudList.length > 0">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>发起方</th>
+                    <th>接收方</th>
+                    <th>交易金额</th>
+                    <th>交易时间</th>
+                    <th>风险等级</th>
+                    <th>确认操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="fraud in detect.fraudList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ ::fraud.fromuser }}</td>
+                    <td>{{ ::fraud.touser }}</td>
+                    <td>{{ ::fraud.money }}</td>
+                    <td>{{ ::fraud.datetime }}</td>
+                    <td>{{ ::fraud.safeLevel }}</td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" type="button">欺诈</button>
+                        <button class="btn btn-primary btn-xs" type="button">非欺诈</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->
