@@ -1,0 +1,437 @@
+<!-- page heading start-->
+<div class="page-heading">
+	<h3>
+		数据模拟工具
+	</h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+  	
+	<div class="row">
+	    <div class="col-lg-12">
+	        <section class="panel">
+	            <header class="panel-heading">
+	                字段选择
+	            </header>
+	            <div class="panel-body">
+	                <div class="row">
+	                    <div class="col-lg-12">
+	                        <form class="form-horizontal bucket-form" method="get">
+	                            <div class="form-group">
+									<div class="col-lg-12 icheck minimal">
+										
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">交易ID
+                                        </label> 
+                                    
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">付款账号
+                                        </label>
+                                   
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">收款账号
+                                        </label>
+                                    
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">交易时间
+                                        </label>
+                                    
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">交易地点
+                                        </label>
+                                   
+                                        <label class="disabled checkbox-inline">
+                                        	<input type="checkbox" disabled="" checked=" " id="">交易金额
+                                        </label>
+									
+
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="simulate.opChannel" ng-change="simulate.clearChannel()"> 交易渠道
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="simulate.opServiceType" ng-change="simulate.clearSt()"> 业务类型
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="simulate.opAuthMode" ng-change="simulate.clearAm()"> 认证方式
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox4" value="option4" ng-model="simulate.opIP" ng-change="simulate.clearIp()"> IP地址
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox5" value="option5" ng-model="simulate.opState" ng-change="simulate.clearState()"> 交易状态
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox6" value="option6" ng-model="simulate.opTerminalNumber" ng-change="simulate.clearTn()"> 终端号
+										</label>
+										<label class="checkbox-inline">
+										  	<input type="checkbox" id="inlineCheckbox7" value="option7" ng-model="simulate.opMac" ng-change="simulate.clearMac()"> mac地址
+										</label>
+											
+	                                </div> 
+	                            </div>
+	                        </form>
+	                    </div>                       
+	                </div>
+	            </div>
+	        </section>
+	    </div>
+	</div>
+
+	<div class="row">
+	    <div class="col-lg-12">
+	        <section class="panel">
+	            <header class="panel-heading">
+	                类型选择
+	            </header>
+	            <div class="panel-body">
+	            	<div class="row">
+	            		<div class="col-lg-12">
+            			&nbsp&nbsp&nbsp&nbsp&nbsp
+                		<button type="button" class="btn btn-primary" ng-click="simulate.addNormalPanelFlag=true; simulate.addFraudPanelFlag=false;simulate.addRulePanelFlag=false">正常交易数据</button>
+                		
+                		&nbsp&nbsp&nbsp&nbsp&nbsp
+                		<button type="button" class="btn btn-primary" ng-click="simulate.addFraudPanelFlag=true; simulate.addNormalPanelFlag=false;simulate.addRulePanelFlag=false">欺诈交易数据</button>
+                		&nbsp&nbsp&nbsp&nbsp&nbsp
+                		<button type="button" class="btn btn-primary" ng-click="simulate.addRulePanelFlag = true; simulate.addNormalPanelFlag=false;simulate.addFraudPanelFlag=false">常用欺诈规则数据</button>
+            			
+        				</div>
+        			</div>
+        		</div>
+        	</section>
+        </div>
+    </div>
+
+	<div class="row" ng-show="simulate.addNormalPanelFlag">
+		<div class="col-md-12">
+		    <div class="panel" data-collapsed="0">
+		        <div class="panel-heading">     
+		            模拟正常交易数据
+		        </div>
+		        <div class="panel-body"><br>
+		        <form class="form-horizontal" role="form">
+
+		        
+                	<div class="form-group">
+                            <label class="control-label col-lg-2 col-sm-2">时间范围</label>
+                            <div class="col-lg-4">
+                                <div class="input-group input-large">
+                                    <input type="text" class="form-control form_datetime" name="from" ng-model="simulate.timeFrom">
+                                    <span class="input-group-addon">To</span>
+                                    <input type="text" class="form-control form_datetime" name="to" ng-model="simulate.timeTo">
+                                </div>
+                                <p class="help-block">选择交易时间区间，如2016-01-02  To 2016-01-02 </p>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">金额范围</label>
+                        <div class="col-lg-4">
+                            <div class="input-group input-large ">
+                                <input type="text" class="form-control" ng-model="simulate.moneyFrom">
+                                <span class="input-group-addon">To</span>
+                                <input type="text" class="form-control" ng-model="simulate.moneyTo"> 
+                            </div>
+                            <span class="help-block">填写金额范围，如：100 To 100000</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">交易地点</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.city">
+                            <p class="help-block">选择交易地点，如：中国广东茂名</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opChannel">
+                        <label class="col-lg-2 col-sm-2 control-label">交易渠道</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" ng-model="simulate.channel">
+                                    <option value="">请选择渠道</option>
+                                    <option value="0">随机选取</option>
+                                    <option value="1">ATM</option>
+                                    <option value="2">POS机</option>
+                                    <option value="3">柜台转账</option>   
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opServiceType">
+                        <label class="col-lg-2 col-sm-2 control-label">业务类型</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" ng-model="simulate.serviceType">
+                                    <option value="">请选择业务类型</option>
+                                    <option value="0">随机选取</option>
+                                    <option value="1">网上银行</option>
+                                    <option value="2">手机银行</option>
+                                    <option value="3">微信银行</option>
+                                    <option value="4">上行快线</option>                                  
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opAuthMode">
+                        <label class="col-lg-2 col-sm-2 control-label">认证方式</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" ng-model="simulate.authMode">
+                                    <option value="">请选择认证方式</option>
+                                    <option value="0">随机选取</option>
+                                    <option value="1">E盾</option>
+                                    <option value="2">手机盾</option>
+                                    <option value="3">短信验证码</option>
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opIP">
+                        <label class="col-lg-2 col-sm-2 control-label">IP地址</label>
+                        	<div class="col-lg-4">
+                        		<select class="form-control" ng-model="simulate.ip">
+                                    <option value="0">随机生成ip地址</option>
+                                </select>
+                            	<p class="help-block"></p>
+                        	</div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opState">
+                        <label class="col-lg-2 col-sm-2 control-label">交易状态</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.state">
+                            <p class="help-block">回应代码，暂定1表示交易成功；0表示交易失败</p>
+                        </div>
+                        <p class="help-block"></p>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opTerminalNumber">
+                        <label class="col-lg-2 col-sm-2 control-label">终端号</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.terminalNumber" placeholder="请输入终端号">
+                            <p class="help-block">0表示随机生成终端号</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="simulate.opMac">
+                        <label class="col-lg-2 col-sm-2 control-label">mac地址</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.mac">
+                            <p class="help-block">填写mac地址，0表示随机</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label">生成数量</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" ng-model="simulate.amount">
+                            <p class="help-block">填写生成交易条数，如：100</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" class="btn btn-primary" ng-click="simulate.submitNormal()">提交</button>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp
+                            <button type="submit" class="btn btn-primary" ng-click="simulate.clearNormal()">清空</button>
+                        </div>
+                    </div>
+	            </form>
+	            </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="row" ng-show="simulate.addFraudPanelFlag">
+		<div class="col-md-12">
+		    <div class="panel" data-collapsed="0">
+		        <div class="panel-heading">      
+		            模拟欺诈交易数据   
+		        </div>
+		        <div class="panel-body"><br>
+		        	<form class="form-horizontal" role="form">
+		        		<div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">付款账号数量</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudNumIdFrom">
+	                            <p class="help-block">填写付款账号的个数，如：100</p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">收款账号数量范围</label>
+	                        <div class="col-lg-4">
+	                            <div class="input-group input-large ">
+	                                <input type="text" class="form-control" ng-model="simulate.fraudNumIdTo1">
+	                                <span class="input-group-addon">To</span>
+	                                <input type="text" class="form-control" ng-model="simulate.fraudNumIdTo2"> 
+	                            </div>
+	                            <span class="help-block">填写收款账号数量范围（每个账号做了多少笔交易），如：5 To 10（每个账号做了5到10笔交易）</span>
+	                        </div>
+	                    </div>
+			        	<div class="form-group">
+	                        <label class="control-label col-lg-2 col-sm-2">时间范围</label>
+                           	<div class="col-lg-4">
+                                <div class="input-group input-large">
+                                    <input type="text" class="form-control form_datetime" name="from" ng-model="simulate.fraudTimeFrom">
+                                    <span class="input-group-addon">To</span>
+                                    <input type="text" class="form-control form_datetime" name="to" ng-model="simulate.fraudTimeTo">
+                                </div>
+                                <p class="help-block">选择交易时间区间，如2016-01-02  To 2016-01-02 </p>
+                            </div>
+	                    </div>
+	                    
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">金额范围</label>
+	                        <div class="col-lg-4">
+	                            <div class="input-group input-large ">
+	                                <input type="text" class="form-control" ng-model="simulate.fraudMoneyFrom">
+	                                <span class="input-group-addon">To</span>
+	                                <input type="text" class="form-control" ng-model="simulate.fraudMoneyTo"> 
+	                            </div>
+	                            <span class="help-block">填写每笔交易的金额范围，如：100 To 100000</span>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">时间单位</label>
+	                        <div class="col-lg-4">
+	                            <select class="form-control" ng-model="simulate.timeType">
+                                    <option value="">请选择时间单位</option>
+                                    <option value="1">年</option>
+                                    <option value="2">月</option>
+                                    <option value="3">星期</option>
+                                    <option value="5">日</option>
+                                    <option value="10">时</option>
+                                    <option value="12">分</option>
+                                    <option value="13">秒</option>
+                                </select>
+	                            <p class="help-block">时间范围单位，结合时间范围数值使用</p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">时间范围</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.timeRange">
+	                            <p class="help-block">时间范围数值n,结合时间单位，表示n分钟，n小时，n星期，n天，n月，n年</p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">交易地点</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudNumCity">
+	                            <p class="help-block">选择交易地点，如：中国广东茂名</p>
+	                        </div>
+	                    </div>
+
+	                    <div class="form-group" ng-show="simulate.opChannel">
+                        	<label class="col-lg-2 col-sm-2 control-label">交易渠道</label>
+                            <div class="col-lg-4">
+                                <select class="form-control" ng-model="simulate.fraudChannel">
+                                    <option value="">请选择渠道</option>
+                                    <option value="0">随机选取</option>
+                                    <option value="1">ATM</option>
+                                    <option value="2">POS机</option>
+                                    <option value="3">柜台转账</option>
+                                </select>
+                                <p class="help-block"></p>
+                            </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opServiceType">
+	                        <label class="col-lg-2 col-sm-2 control-label">业务类型</label>
+	                            <div class="col-lg-4">
+	                                <select class="form-control" ng-model="simulate.fraudServiceType">
+	                                    <option value="">请选择业务类型</option>
+	                                    <option value="0">随机选取</option>
+	                                    <option value="1">网上银行</option>
+	                                    <option value="2">手机银行</option>
+	                                    <option value="3">微信银行</option>
+	                                    <option value="4">上行快线</option>                                  
+	                                </select>
+	                                <p class="help-block"></p>
+	                            </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opAuthMode">
+	                        <label class="col-lg-2 col-sm-2 control-label">认证方式</label>
+	                            <div class="col-lg-4">
+	                                <select class="form-control" ng-model="simulate.fraudAuthMode">
+	                                    <option value="">请选择认证方式</option>
+	                                    <option value="0">随机选取</option>
+	                                    <option value="1">E盾</option>
+	                                    <option value="2">手机盾</option>
+	                                    <option value="3">短信验证码</option>
+	                                </select>
+	                                <p class="help-block"></p>
+	                            </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opIP">
+	                        <label class="col-lg-2 col-sm-2 control-label">IP地址</label>
+	                        <div class="col-lg-4">
+	                        	<select class="form-control" ng-model="simulate.fraudIp">
+                                    <option value="0">随机生成ip地址</option>
+                                </select>
+	                            <p class="help-block"></p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opState">
+	                        <label class="col-lg-2 col-sm-2 control-label">交易状态</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudState">
+	                            <p class="help-block">回应代码，交易成功或失败</p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opTerminalNumber">
+	                        <label class="col-lg-2 col-sm-2 control-label">终端号</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudTerminalNumber">
+	                            <p class="help-block">生成终端号，0表示随机</p>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" ng-show="simulate.opMac">
+	                        <label class="col-lg-2 col-sm-2 control-label">mac地址</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.fraudMac">
+	                            <p class="help-block">填写mac地址，0表示随机</p>
+	                        </div>
+                    	</div>
+	                    <div class="form-group">
+	                        <label class="col-lg-2 col-sm-2 control-label">百分比</label>
+	                        <div class="col-lg-4">
+	                            <input type="text" class="form-control" ng-model="simulate.percent">
+	                            <p class="help-block">生成的交易数据中欺诈数据所占的百分比,如：0.8</p>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="form-group">
+	                        <div class="col-lg-offset-2 col-lg-10">
+	                            <button type="submit" class="btn btn-primary" ng-click="simulate.submitFraud()">提交</button>
+	                            &nbsp&nbsp&nbsp&nbsp&nbsp
+                            	<button type="submit" class="btn btn-primary" ng-click="simulate.clearFraud()">清空</button>
+	                        </div>
+	                    </div>
+		            </form>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+	<div class="row" ng-show="simulate.addRulePanelFlag">
+		<div class="col-md-12">
+		    <div class="panel" data-collapsed="0">
+		        <div class="panel-heading">
+		            <div class="panel-title">
+		                模拟常用欺诈规则数据
+		            </div>
+
+		        </div>
+		        <div class="panel-body">
+		            <h5>
+		            	规则1：先做几笔小额交易，再做一笔大额交易
+		            </h5>
+		            <div class="row">
+		                <div class="col-md-3 form-group">
+		                    <input type="text" class="form-control" placeholder="生成数量">
+	                    </div>
+		                <div class="col-md-3 form-group">
+		                    <input type="text" class="form-control" placeholder="百分比">
+		                </div>						
+						<button type="submit" class="btn btn-primary">Submit</button>		                
+		            </div>
+		        </div>
+
+		    </div>
+
+		</div>
+	</div>
+
+</div>

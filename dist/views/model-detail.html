@@ -1,0 +1,109 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        模型详情
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a ui-sref="model.list">模型列表</a>
+        </li>
+        <li class="active"> {{ modelDetail.modelName }} </li>
+    </ul>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{ modelDetail.modelName }}
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered bg-white">
+                        <tbody>
+                        <tr class="has-bg">
+                            <td colspan="2">创建时间</td>
+                            <td colspan="2">状态</td>
+                            <td colspan="2">使用模板</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{{ modelDetail.createdAt }}</td>
+                            <td colspan="2">{{ modelDetail.status }}</td>
+                            <td colspan="2">{{ modelDetail.templateName }}</td>
+                        </tr>
+                        <tr class="has-bg text-center">
+                            <td colspan="6">参数</td>
+                        </tr>
+                        <tr class="has-bg">
+                            <td>scale</td>
+                            <td>kernel</td>
+                            <td>degree</td>
+                            <td>gamma</td>
+                            <td>coef0</td>
+                            <td>cost</td>
+                        </tr>
+                        <tr>
+                            <td>{{ modelDetail.parameters.scale }}</td>
+                            <td>{{ modelDetail.parameters.kernel }}</td>
+                            <td>{{ modelDetail.parameters.degree }}</td>
+                            <td>{{ modelDetail.parameters.gamma }}</td>
+                            <td>{{ modelDetail.parameters.coef0 }}</td>
+                            <td>{{ modelDetail.parameters.cost }}</td>
+                        </tr>
+                        <tr class="has-bg">
+                            <td width="16.67%">nu</td>
+                            <td width="16.67%">tolerance</td>
+                            <td width="16.67%">epsilon</td>
+                            <td width="16.67%">shrinking</td>
+                            <td width="16.67%">cross</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ modelDetail.parameters.nu }}</td>
+                            <td>{{ modelDetail.parameters.tolerance }}</td>
+                            <td>{{ modelDetail.parameters.epsilon }}</td>
+                            <td>{{ modelDetail.parameters.shrinking }}</td>
+                            <td>{{ modelDetail.parameters.cross }}</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    训练历史
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered bg-white">
+                        <thead>
+                        <tr class="has-bg">
+                            <th>序号</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>使用数据集</th>
+                            <th>状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="history in modelDetail.trainingHistory">
+                            <td>{{ $index }}</td>
+                            <td>{{ ::history.began_at }}</td>
+                            <td>{{ ::history.ended_at }}</td>
+                            <td>{{ ::history.dataset.began_at }} - {{ ::history.dataset.ended_at }}</td>
+                            <td>{{ ::history.status }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->

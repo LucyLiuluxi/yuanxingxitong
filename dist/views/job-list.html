@@ -1,0 +1,125 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        任务管理
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row top-operation-btn-group">
+        <div class="col-lg-4">
+            <p>
+                <button type="button" class="btn btn-primary" ng-click="jobList.addPanelFlag = true">添加</button>
+            </p>
+        </div>
+        <div class="col-lg-8">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-3 pull-right">
+                        <div class="input-group m-bot15">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 pull-right">
+                        <select class="form-control">
+                            <option>excel批量操作</option>
+                            <option>批量导出</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="jobList.addPanelFlag">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    添加任务
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal ">
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">模板</label>
+                            <div class="col-md-4 col-xs-11">
+                                <select class="form-control" ng-model="jobList.modelId">
+                                    <option value="">请选择模板</option>
+                                    <option value="1">模板1</option>
+                                    <option value="2">模板2</option>
+                                    <option value="3">模板3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">开始时间</label>
+                            <div class="col-md-4 col-xs-11">
+                                <input class="form-control form-control-inline input-medium default-date-picker"  size="16" type="text" ng-model="jobList.beganAt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2">数据集</label>
+                            <div class="col-md-4">
+                                <div class="input-group input-large custom-date-range" data-date="2016-09-03" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control dpd1" name="from" ng-model="jobList.dataset.beganAt">
+                                    <span class="input-group-addon">To</span>
+                                    <input type="text" class="form-control dpd2" name="to" ng-model="jobList.dataset.endedAt">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"></label>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary" ng-click="jobList.submit()"> 保存 </button>
+                                <button type="button" class="btn btn-default" ng-click="jobList.addPanelFlag = false"> 取消 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="job in jobList.jobList">
+                    <td>{{ $index }}</td>
+                    <td>{{ ::job.job }}</td>
+                    <td>{{ ::job.status }}</td>
+                    <td>{{ ::job.created_at }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" type="button" ng-click="jobList.gotoDetail(job.id)">详情</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <uib-pagination class="pagination-sm pull-right-pagination"
+                            total-items="jobList.total"
+                            items-per-page="jobList.pageSize"
+                            ng-model="jobList.page"
+                            max-size="5"
+                            boundary-links="true"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页"
+                            rotate="true"
+                            boundary-link-numbers="true"
+                            ng-change="jobList.refreshjobList()"></uib-pagination>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->

@@ -1,0 +1,78 @@
+<!-- page heading start-->
+<div class="page-heading">
+    <h3>
+        银行业务数据
+    </h3>
+</div>
+<!-- page heading end-->
+
+<!--body wrapper start-->
+<div class="wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2 pull-right">
+                        <div class="input-group m-bot15">
+                            <input type="text" class="form-control">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 pull-right">
+                        <select class="form-control">
+                            <option>excel批量操作</option>
+                            <option>批量导出</option>
+                            <option>批量导入</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <table class="table table-bordered bg-white">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>打款人</th>
+                    <th>收款人</th>
+                    <th>交易金额</th>
+                    <th>交易时间</th>
+                    <th>发起地</th>
+                    <th>交易渠道</th>
+                    <th>安全等级</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in gatherBank.dataList">
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ ::data.fromuser }}</td>
+                    <td>{{ ::data.touser }}</td>
+                    <td>{{ ::data.money }}</td>
+                    <td>{{ ::data.datetime }}</td>
+                    <td>{{ ::data.fromplace }}</td>
+                    <td>{{ ::data.tool }}</td>
+                    <td>{{ ::data.safeLevel }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <uib-pagination class="pagination-sm pull-right-pagination"
+                            total-items="gatherBank.total"
+                            items-per-page="gatherBank.pageSize"
+                            ng-model="gatherBank.page"
+                            max-size="5"
+                            boundary-links="true"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            first-text="首页"
+                            last-text="末页"
+                            rotate="true"
+                            boundary-link-numbers="true"
+                            ng-change="gatherBank.refreshDataList()"></uib-pagination>
+        </div>
+    </div>
+</div>
+<!--body wrapper end-->
